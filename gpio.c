@@ -207,22 +207,4 @@ void gpioWritePortHighByte(GPIO_RegDef_t* portName, const uint8_t byteData)
 
 // getRngNumber	PLL clock source  AHB2 bus en fazla 48MHz olmalı
 
-/*
-GPIO_Handle_t LEDs_D0_TO_D7[8] = {  {.PORTNAME = GPIOD,
-				     .PINCONF.PIN = GPIO_PIN_0,
-				     .PINCONF.MODE = GPIO_MODE_OUTPUT,
-				     .PINCONF.OTYPE = GPIO_OTYPE_PP,
-				     .PINCONF.OSPEED = GPIO_OSPEED_HIGH,
-				     .PINCONF.PUPD = GPIO_PUPD_PD,
-				     .PINCONF.AF = GPIO_AF_NO},
 
-				 };
-
-
-			 for (int pin = 0;  pin < BYTE_SIZE; ++pin) {
-				 LEDs_D0_TO_D7[pin] = LEDs_D0_TO_D7[0];
-				 LEDs_D0_TO_D7[pin].PINCONF.PIN = pin;
-				 gpioInit(&LEDs_D0_TO_D7[pin]);
-			}
-
-*/
