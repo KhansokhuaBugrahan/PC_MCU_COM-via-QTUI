@@ -6,18 +6,7 @@
  */
 #include "gpio.h"
 #include "stm32f4xx.h"
-/*
- * 	mode ayarı output için push pull, open-drain, speed ne olsun?
- * 	input için, pull-up, pull-down mu?, input mu alternate function mı?
- *
- * 	gpioInit
- *  gpioWritePin
- *  gpioTogglePin
- *  gpioWritePort
- *  gpioReadPin
- *  gpioReadPort
- *
- */
+
 static void gpioClockEnable(const GPIO_RegDef_t* portName)
 {
 	if(portName == GPIOA)
@@ -112,21 +101,6 @@ void gpioInit(GPIO_Handle_t* portName)
 
 	}
 
-
-	//	PORT ismi
-	/*	pin seçimi
-	 * MODER
-	 *
-	 * 1-input 2-output 3- alternate func 4- analog
-	 * OTYPER
-	 * 1-push-pull 2-open-drain
-	 * OSPEEDR
-	 * 1-low speed 2-medium speed 3-high speed 4-very high speed
-	 * PUPDR
-	 * 1-no pu-no pd 2-pull up 3-pull down
-	 *
-	 *ALTERNATE
-	 */
 
 }
 void gpioTogglePin(GPIO_RegDef_t* portName, GPIO_PinNo_e pinNo)
@@ -235,14 +209,14 @@ void gpioWritePortHighByte(GPIO_RegDef_t* portName, const uint8_t byteData)
 
 /*
 GPIO_Handle_t LEDs_D0_TO_D7[8] = {  {.PORTNAME = GPIOD,
-												    .PINCONF.PIN = GPIO_PIN_0,
-												    .PINCONF.MODE = GPIO_MODE_OUTPUT,
-												    .PINCONF.OTYPE = GPIO_OTYPE_PP,
-												    .PINCONF.OSPEED = GPIO_OSPEED_HIGH,
-											        .PINCONF.PUPD = GPIO_PUPD_PD,
-													.PINCONF.AF = GPIO_AF_NO},
+				     .PINCONF.PIN = GPIO_PIN_0,
+				     .PINCONF.MODE = GPIO_MODE_OUTPUT,
+				     .PINCONF.OTYPE = GPIO_OTYPE_PP,
+				     .PINCONF.OSPEED = GPIO_OSPEED_HIGH,
+				     .PINCONF.PUPD = GPIO_PUPD_PD,
+				     .PINCONF.AF = GPIO_AF_NO},
 
-							     	 	 };
+				 };
 
 
 			 for (int pin = 0;  pin < BYTE_SIZE; ++pin) {
