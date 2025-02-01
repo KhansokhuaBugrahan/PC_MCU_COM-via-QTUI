@@ -8,8 +8,7 @@
 void i2cInit()
 	 				{
 					I2C1_CLOCK_ENABLE();
-//						gpioInit(&I2C1_SCL_PB6); // pull-up farklı
-//						gpioInit(&I2C1_SDA_PB7);
+
 						I2C1->I2C_CR1 |= (1u << 15);
 						I2C1->I2C_CR1 &= ~(1u << 15);
 
